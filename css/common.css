@@ -1,0 +1,28 @@
+/* css reset */
+body,ul,ol,li,h1,h2,h3,h4,h5,h6,input,button,p,th,td { 
+	margin:0; padding:0; 
+}
+h1,h2,h3,h4,h5,h6{
+	font-weight:normal;
+}
+
+a { 
+	color: #333;
+	text-decoration:none;
+}
+
+img { 
+	border:none; 
+	vertical-align:bottom;
+}
+
+ol,ul,li { 
+	list-style:none; 
+}
+
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
