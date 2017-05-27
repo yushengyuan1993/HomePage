@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>弹出框</title>
+<style type="text/css">
+#backgroundPopup{   
+display:none;
+position:fixed;  
+height:100%;   
+width:100%;   
+top:0;   
+left:0;   
+background:#000; 
+z-index:1;   
+}   
+#popupContact{   
+display:none;   
+position:fixed;      
+height:384px;   
+width:408px;   
+background:#FFFFFF;   
+border:2、1px solid #ccc;
+border-radius: 4px;
+z-index:2;   
+padding:12px;   
+font-size:14px;   
+}   
+#popupContact h1{   
+text-align:left;   
+color:#6FA5FD;   
+font-size:22px;   
+font-weight:700;   
+border-bottom:1px dotted #D3D3D3;   
+padding-bottom:2px;   
+margin-bottom:20px;   
+}   
+#popupContactClose{   
+font-size:14px;   
+line-height:14px;   
+right:6px;   
+top:4px;   
+position:absolute;   
+color:#6fa5fd;   
+font-weight:700;   
+display:block;
+cursor:pointer;
+}
+</style>
+	<script src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//初始化：是否开启DIV弹出窗口功能
+	//0 表示开启; 1 表示不开启;
+	var popupStatus = 0;
+	//使用Jquery加载弹窗 
+	function loadPopup(){   
+	//仅在开启标志popupStatus为0的情况下加载  
+	if(popupStatus==0){   
+		$("#backgroundPopup").css({   
+			"opacity": "0.7"  
+		});   
+		$("#backgroundPopup").fadeIn("slow");   
+		$("#popupContact").fadeIn("slow");   
+		popupStatus = 1;   
+		}   
+	}  
+	//使用Jquery去除弹窗效果 
+	function disablePopup(){
+		if(popupStatus==1){   
+			$("#backgroundPopup").fadeOut("slow");   
+			$("#popupContact").fadeOut("slow");   
+			popupStatus = 0;   
+		}   
+	} 
+	//将弹出窗口定位在屏幕的中央
+	function centerPopup(){
+		var windowWidth = document.documentElement.clientWidth;   
+		var windowHeight = document.documentElement.clientHeight;   
+		var popupHeight = $("#popupContact").height();   
+		var popupWidth = $("#popupContact").width();   
+		//居中设置   
+		$("#popupContact").css({   
+			"position": "absolute",   
+			"top": windowHeight/2-popupHeight/2,   
+			"left": windowWidth/2-popupWidth/2   
+		});   
+		//以下代码仅在IE6下有效
+		$("#backgroundPopup").css({   
+			"height": windowHeight   
+		});   
+	}
+	
+	//打开弹出窗口
+	$("#button").click(function(){  
+		centerPopup();   
+		loadPopup();   
+	});
+	//关闭弹出窗口   
+	$("#popupContactClose").click(function(){   
+			disablePopup();   
+	});
+	$("#backgroundPopup").click(function(){   
+		disablePopup();   
+	});
+	$(document).keydown(function(e){   
+		if(e.keyCode==27 && popupStatus==1){   
+			disablePopup();   
+		}   
+	});  
+
+
+});
+
+</script>
+</head>
+<body>
+    <center>  
+        <div id="button"><input type="submit" value="点击这里查看效果" /></div>  
+    </center>  
+    <div id="popupContact">  
+        <a id="popupContactClose">x</a>  
+        <h1>弹出窗口的标题</h1>  
+        <p id="contactArea">  
+            这就是我们创建的漂亮DIV弹窗效果。可以看到jQuery实在是非常强大，我们仅需少量的CSS和JavaScript代码即可完成这一效果。<br/><br/>  
+            我们可以在这个弹窗之中放置一个登录框、注册表单、重要事件提醒等等。   
+            <br/><br/>  
+            要关闭这个窗口，请点击右上方的X按钮或点击弹窗外的背景或按下键盘上的ESC键。   
+            <br/><br/>  
+        </p>  
+    </div>  
+    <div id="backgroundPopup"></div>  
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</body>
+</html>
