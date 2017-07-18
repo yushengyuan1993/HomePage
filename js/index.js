@@ -292,9 +292,9 @@ option = {
         //shape: 'circle',
         indicator: [
            { name: 'JavaScript', max: 10},
-           { name: 'CSS', max: 10},
-           { name: 'HTML', max: 10},
-           { name: 'AngularJS', max: 10},
+           { name: 'jqEasyUI', max: 10},
+           { name: 'Vue.js', max: 10},
+           { name: 'HTML5/CSS3', max: 10},
            { name: 'BootStrap', max: 10},
            { name: 'AJAX', max: 10},
            { name: 'jQuery', max: 10}
@@ -330,7 +330,7 @@ option = {
         // areaStyle: {normal: {}},
         data : [
             {
-                value : [7, 8, 8, 7.5, 7.5, 7,6],
+                value : [7.5, 8.5, 6, 7.5, 7.5, 8,8.5],
                 name : '查看'
             }
         ],
